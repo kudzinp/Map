@@ -12,6 +12,7 @@
 		048087482D6E69F500613640 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048087402D6E69F500613640 /* Preview Assets.xcassets */; };
 		048087492D6E69F500613640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048087422D6E69F500613640 /* Assets.xcassets */; };
 		0480874B2D6E6A8200613640 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480874A2D6E6A8200613640 /* LocationModel.swift */; };
+		0480874E2D6F08E100613640 /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480874D2D6F08E100613640 /* LocationsDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		048087432D6E69F500613640 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		048087442D6E69F500613640 /* MapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApp.swift; sourceTree = "<group>"; };
 		0480874A2D6E6A8200613640 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		0480874D2D6F08E100613640 /* LocationsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		048087452D6E69F500613640 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				0480874C2D6F085000613640 /* DataServices */,
 				0480873F2D6E69CE00613640 /* Models */,
 				048087412D6E69F500613640 /* Preview Content */,
 				048087422D6E69F500613640 /* Assets.xcassets */,
@@ -76,6 +79,14 @@
 				048087442D6E69F500613640 /* MapApp.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		0480874C2D6F085000613640 /* DataServices */ = {
+			isa = PBXGroup;
+			children = (
+				0480874D2D6F08E100613640 /* LocationsDataService.swift */,
+			);
+			path = DataServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0480874E2D6F08E100613640 /* LocationsDataService.swift in Sources */,
 				048087462D6E69F500613640 /* ContentView.swift in Sources */,
 				0480874B2D6E6A8200613640 /* LocationModel.swift in Sources */,
 				048087472D6E69F500613640 /* MapApp.swift in Sources */,
