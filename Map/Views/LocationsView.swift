@@ -14,7 +14,7 @@ struct LocationsView: View {
 
     var body: some View {
         ZStack {
-            Map(initialPosition: .region(locationsVM.mapRegion))
+            Map(position: $locationsVM.mapCameraPosition)
                 .ignoresSafeArea()
             
             VStack(spacing: 0) {
@@ -33,20 +33,29 @@ struct LocationsView: View {
 }
 
 extension LocationsView {
+    
     private var header: some View {
         VStack {
-            Text(locationsVM.mapLocation.name + ", " + locationsVM.mapLocation.cityName)
-                .font(.title2)
-                .fontWeight(.black)
-                .foregroundColor(.primary)
-                .frame(height: 55)
-                .frame(maxWidth: .infinity)
-                .overlay(alignment: .leading) {
-                    Image(systemName: "arrow.down")
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .padding()
-                }
+            Button(action: locationsVM.toggleLocationsList) {
+                Text(locationsVM.mapLocation.name + ", " + locationsVM.mapLocation.cityName)
+                    .font(.title2)
+                    .fontWeight(.black)
+                    .foregroundColor(.primary)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .animation(.none, value: locationsVM.mapLocation)
+                    .overlay(alignment: .leading) {
+                        Image(systemName: "arrow.down")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                            .padding()
+                            .rotationEffect(Angle(degrees: locationsVM.showLocationsList ? 180 : 0))
+                    }
+            }
+            
+            if locationsVM.showLocationsList {
+                LocationsListView()
+            }
         }
         .background(.thickMaterial)
         .cornerRadius(10)
