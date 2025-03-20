@@ -14,8 +14,8 @@ struct LocationsView: View {
 
     var body: some View {
         ZStack {
-            Map(position: $locationsVM.mapCameraPosition)
-                .ignoresSafeArea()
+            mapLayer
+            .ignoresSafeArea()
             
             VStack(spacing: 0) {
                 header
@@ -33,6 +33,21 @@ struct LocationsView: View {
 }
 
 extension LocationsView {
+    
+    private var mapLayer: some View {
+        Map(position: $locationsVM.mapCameraPosition) {
+            ForEach(locationsVM.locations) { location in
+                Annotation("locations_marker", coordinate: location.coordinates) {
+                    LocationMapAnnotationView()
+                        .scaleEffect(locationsVM.mapLocation == location ? 1 : 0.7)
+                        .shadow(radius: 10)
+                        .onTapGesture {
+                            locationsVM.showNextLocation(location: location)
+                        }
+                }
+            }
+        }
+    }
     
     private var header: some View {
         VStack {
