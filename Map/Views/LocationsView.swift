@@ -24,6 +24,9 @@ struct LocationsView: View {
                 locationsPreviewStack
             }
         }
+        .sheet(item: $locationsVM.sheetLocation, onDismiss: nil) { location in
+            LocationDetailView(location: location)
+        }
     }
 }
 
@@ -37,7 +40,7 @@ extension LocationsView {
     private var mapLayer: some View {
         Map(position: $locationsVM.mapCameraPosition) {
             ForEach(locationsVM.locations) { location in
-                Annotation("locations_marker", coordinate: location.coordinates) {
+                Annotation("", coordinate: location.coordinates) {
                     LocationMapAnnotationView()
                         .scaleEffect(locationsVM.mapLocation == location ? 1 : 0.7)
                         .shadow(radius: 10)
